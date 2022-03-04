@@ -15,6 +15,8 @@ exports.registerUser = catchAsyncError(async (req, res, next) => {
   //   crop: 'scale',
   // })
   // 61efa6b4b6cceb0eaabae821
+  const uEmail = await User.findOne({ email: req.body.email })
+  if (uEmail) return next(new ErrorHandler('Email id Already registered', 401))
 
   const user = await User.create({
     name,
@@ -149,11 +151,14 @@ exports.updatePass = catchAsyncError(async (req, res, next) => {
 exports.updateProfile = catchAsyncError(async (req, res, next) => {
   const newUserData = {
     name: req.body.name,
-
+    //  department, sem, address
     email: req.body.email,
+    department: req.body.department,
+    sem: req.body.sem,
+    mobileNo: req.body.mobileNo,
   }
 
-  const user = await User.findByIdAndUpdate(req.user.id, newData, {
+  const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
     new: true,
     runValidators: true,
     useFindAndModify: false,

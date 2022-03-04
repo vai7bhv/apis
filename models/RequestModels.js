@@ -9,12 +9,16 @@ const requestSchema = new mongoose.Schema({
   description: {
     type: String,
   },
-  userId: {
-    type: mongoose.Schema.ObjectId,
-    ref: 'User',
+  // userId: {
+  //   type: mongoose.Schema.ObjectId,
+  //   ref: 'User',
+  //   // required: true,
+  // },
+  userName: {
+    type: String,
     // required: true,
   },
-  userName: {
+  email: {
     type: String,
     // required: true,
   },

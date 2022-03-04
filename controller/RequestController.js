@@ -8,8 +8,9 @@ const { checkUser } = require('../middleware/auth')
 //create request
 
 exports.createRequest = catchAsyncError(async (req, res, next) => {
-  req.body.userId = req.user.id
-  req.body.userName = req.user.name
+  // req.body.userId = req.user.id
+  // req.body.userId = req.user.id
+  // req.body.userName = req.user.name
 
   const request = await Request.create(req.body)
 

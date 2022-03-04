@@ -38,6 +38,9 @@ const productSchema = new mongoose.Schema({
   passingYear: {
     type: Number,
   },
+  mobileNo: {
+    type: Number,
+  },
   category: {
     type: String,
     required: [true, 'please enter category'],
